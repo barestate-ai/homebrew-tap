@@ -8,13 +8,13 @@ class Barestate < Formula
 
   def install
     system "scripts/build-app.sh", "release", "--disable-sandbox"
-    prefix.install "build/Barestate.app"
+    prefix.install "build/Orb.app"
   end
 
   def caveats
     <<~EOS
       Link the app into Applications:
-        ln -sfn #{opt_prefix}/Barestate.app /Applications/Barestate.app
+        ln -sfn #{opt_prefix}/Orb.app /Applications/Orb.app
 
       Each upgrade is a new build, so macOS asks for Screen Recording and
       Accessibility again.
@@ -22,6 +22,6 @@ class Barestate < Formula
   end
 
   test do
-    system "codesign", "--verify", "--deep", "--strict", prefix/"Barestate.app"
+    system "codesign", "--verify", "--deep", "--strict", prefix/"Orb.app"
   end
 end

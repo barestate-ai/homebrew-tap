@@ -4,7 +4,7 @@ class Barestate < Formula
   head "https://github.com/barestate-ai/barestate-mac-app.git", branch: "main"
 
   depends_on arch: :arm64
-  depends_on macos: :tahoe
+  depends_on macos: :sonoma
 
   def install
     system "scripts/build-app.sh", "release", "--disable-sandbox"

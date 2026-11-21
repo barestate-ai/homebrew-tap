@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  homebrew:
+    name: Install, test and audit OMS
+    runs-on: macos-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tap the checkout
+        run: brew tap barestate-ai/tap "$GITHUB_WORKSPACE"
+      - run: brew install --formula barestate-ai/tap/oms
+      - run: brew test barestate-ai/tap/oms
+      - run: brew audit --strict barestate-ai/tap/oms

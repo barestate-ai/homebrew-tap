@@ -9,3 +9,5 @@ ln -sfn "$(brew --prefix barestate)/Orb.app" /Applications/Orb.app
 ```
 
 Upgrade with `brew upgrade --fetch-HEAD barestate`.
+
+Install OMS with Node, Git and Solana CLI: `brew install barestate-ai/tap/oms` (`oh-my-sol` is an alias).

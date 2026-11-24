@@ -11,7 +11,9 @@ class Oms < Formula
 
   def install
     system "npm", "install", *std_npm_args, "--ignore-scripts", "--no-audit", "--no-fund"
-    native_platform = "#{OS.mac? ? "darwin" : "linux"}-#{Hardware::CPU.arm? ? "arm64" : "x64"}"
+    os = OS.mac? ? "darwin" : "linux"
+    arch = Hardware::CPU.arm? ? "arm64" : "x64"
+    native_platform = "#{os}-#{arch}"
     libexec.glob("**/prebuilds/*").each do |prebuild|
       rm_r prebuild if prebuild.basename.to_s != native_platform
     end

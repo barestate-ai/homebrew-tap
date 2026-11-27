@@ -1,8 +1,8 @@
 class Oms < Formula
   desc "Solana coding harness for your terminal"
   homepage "https://github.com/barestate-ai/oms"
-  url "https://registry.npmjs.org/@barestate/oms/-/oms-0.1.3.tgz"
-  sha256 "12ce6eb8f6da5397c9cad48f6fbee5174c2cb65b6f177891ec681fd357daf115"
+  url "https://registry.npmjs.org/@barestate/oms/-/oms-0.1.4.tgz"
+  sha256 "8965e8492309f1b997c14f190390667ae4333c1896a4d6a38d1f4e2c73eaf60e"
   license "MIT"
 
   depends_on "git"

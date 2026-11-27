@@ -1,8 +1,8 @@
 class Oms < Formula
   desc "Solana coding harness for your terminal"
   homepage "https://github.com/barestate-ai/oms"
-  url "https://registry.npmjs.org/@barestate/oms/-/oms-0.1.3.tgz"
-  sha256 "12ce6eb8f6da5397c9cad48f6fbee5174c2cb65b6f177891ec681fd357daf115"
+  url "https://registry.npmjs.org/@barestate/oms/-/oms-0.1.4.tgz"
+  sha256 "8965e8492309f1b997c14f190390667ae4333c1896a4d6a38d1f4e2c73eaf60e"
   license "MIT"
 
   depends_on "git"
@@ -11,7 +11,9 @@ class Oms < Formula
 
   def install
     system "npm", "install", *std_npm_args, "--ignore-scripts", "--no-audit", "--no-fund"
-    native_platform = "#{OS.mac? ? "darwin" : "linux"}-#{Hardware::CPU.arm? ? "arm64" : "x64"}"
+    os = OS.mac? ? "darwin" : "linux"
+    arch = Hardware::CPU.arm? ? "arm64" : "x64"
+    native_platform = "#{os}-#{arch}"
     libexec.glob("**/prebuilds/*").each do |prebuild|
       rm_r prebuild if prebuild.basename.to_s != native_platform
     end
